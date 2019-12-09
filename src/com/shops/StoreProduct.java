@@ -1,30 +1,29 @@
 package com.shops;
 
-import javax.faces.bean.ManagedBean;
-
-@ManagedBean
-public class ManageStores {
-
-	// variables
+public class StoreProduct {
+	private int pid;
 	private int sid;
+	private int stid;
+	private String prodName;
+	private String price;
 	private String storeName;
 	private String founded;
 
 	// ==================================================================================
 	// Constructors
 	// ==================================================================================
-	public ManageStores() {
+	public StoreProduct() {
 	}
-
+	
 	// ==================================================================================
 	// Getters and Setters
 	// ==================================================================================
-	public int getSid() {
-		return sid;
+	public int getStid() {
+		return stid;
 	}
 
-	public void setSid(int sid) {
-		this.sid = sid;
+	public void setStid(int stid) {
+		this.stid = stid;
 	}
 
 	public String getStoreName() {
@@ -43,11 +42,44 @@ public class ManageStores {
 		this.founded = founded;
 	}
 
+	public int getPid() {
+		return pid;
+	}
+
+	public void setPid(int pid) {
+		this.pid = pid;
+	}
+
+	public int getSid() {
+		return sid;
+	}
+
+	public void setSid(int sid) {
+		this.sid = sid;
+	}
+
+	public String getProdName() {
+		return prodName;
+	}
+
+	public void setProdName(String prodName) {
+		this.prodName = prodName;
+	}
+
+	public String getPrice() {
+		return price;
+	}
+
+	public void setPrice(String price) {
+		this.price = price;
+	}
+
 	// ==================================================================================
 	// Override toString method
 	// ==================================================================================
 	@Override
 	public String toString() {
-		return "ID: " + this.sid + "\nName: " + this.storeName + "\nFounded: " + this.founded + "\n";
+		return "\nID: " + this.sid + "\nName: " + this.storeName + "\nFounded: " + this.founded + "\nPID: " + this.pid
+				+ "\nSID: " + this.sid + "\nName: " + this.prodName + "\nPrice: " + this.price + "\n";
 	}
 }

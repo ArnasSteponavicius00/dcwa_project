@@ -14,62 +14,68 @@ import com.mysql.jdbc.CommunicationsException;
 @ManagedBean
 @SessionScoped
 public class ManageStoresController {
-	
-	DAO dao;
-	ArrayList<ManageStores> stores;
-	
+
+	// variables
+	private DAO dao;
+	private ArrayList<ManageStores> stores;
+
+	// Constructor
 	public ManageStoresController() {
 		super();
-		
-		try {		
-			dao = new DAO();		
-		}catch (Exception e) {
+		try {
+			dao = new DAO();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
+	// display stores by calling loadStores method from DAO.java
 	public void loadStores() {
-		System.out.println("In loadStores()");
+		System.out.println("In loadStores() Controller");
+
 		try {
 			stores = dao.loadStores();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+
+	// add a store by calling addStore method from DAO.java
 	public String addStore(ManageStores store) {
+		System.out.println("In addStores() Controller");
 		System.out.println(store.getStoreName() + " " + store.getFounded());
+
 		try {
 			dao.addStore(store);
 			return "index";
 		} catch (SQLIntegrityConstraintViolationException e) {
-			FacesMessage message = 
-					new FacesMessage("Error: Store already exists");
-					FacesContext.getCurrentInstance().addMessage(null, message);
+			FacesMessage message = new FacesMessage("Error: Store already exists");
+			FacesContext.getCurrentInstance().addMessage(null, message);
 		} catch (CommunicationsException e) {
-			FacesMessage message = 
-					new FacesMessage("Error: Can't communicate with DB");
-					FacesContext.getCurrentInstance().addMessage(null, message);
-		}catch (Exception e) {
-			FacesMessage message = 
-					new FacesMessage("Error: " + e.getMessage());
-					FacesContext.getCurrentInstance().addMessage(null, message);
+			FacesMessage message = new FacesMessage("Error: Can't communicate with DB");
+			FacesContext.getCurrentInstance().addMessage(null, message);
+		} catch (Exception e) {
+			FacesMessage message = new FacesMessage("Error: " + e.getMessage());
+			FacesContext.getCurrentInstance().addMessage(null, message);
 
 			e.printStackTrace();
 		}
 		return null;
 	}
-	
+
+	// delete a store by calling deleteStore method from DAO.java
 	public void deleteStore(int sid) {
-		System.out.println("in deleteStore()");
+		System.out.println("In deleteStore() Controller");
+
 		try {
 			dao.deleteStore(sid);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public ArrayList<ManageStores> getStores() {
 		return stores;
 	}
-	
+
 }

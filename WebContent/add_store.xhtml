@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:h="http://xmlns.jcp.org/jsf/html"
-  xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
-  
-  <h:head>
-    <title>Add Store</title>
-  </h:head>
-  
-  <h:body>
-  	<h:messages globalOnly="true"/>
-    <h:form>
-      Store Name:
-      <h:inputText value="#{manageStores.storeName}"/><br/>
-      Founded:
-      <h:inputText value="#{manageStores.founded}"/>
-      <br/>
-      <h:commandButton value="OK" action="#{manageStoresController.addStore(manageStores)}"/>
-   </h:form>
-   <h:form>
-   	<h:commandLink value="Home" action="index"/>
-   	<h:commandLink value="Stores" action="list_stores"/>
-   </h:form>
-  </h:body>
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+	<title>Add Store</title>
+</h:head>
+
+<h:body>
+	<h:messages globalOnly="true" />
+	<h3>Add Store</h3>
+	<h:form>
+		<table>
+			<tr>
+				<td>Store Name: <h:inputText value="#{manageStores.storeName}"
+						required="true" requiredMessage="Name is Mandatory" />
+				</td>
+			</tr>
+			<tr>
+				<td>Founded: <h:inputText value="#{manageStores.founded}"
+						required="true" requiredMessage="Founded is Mandatory" />
+				</td>
+			</tr>
+		</table>
+
+		<h:commandButton value="OK"
+			action="#{manageStoresController.addStore(manageStores)}" />
+	</h:form>
+	<p>
+		<h:form>
+			<h:commandLink value="Home" action="index" />
+			<h:commandLink value="Stores" action="list_stores" />
+		</h:form>
+	</p>
+</h:body>
 </html>

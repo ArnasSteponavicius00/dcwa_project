@@ -9,41 +9,40 @@
 
 <f:metadata>
 	<f:event type="preRenderView"
-		listener="#{manageStoresController.loadStores()}" />
+		listener="#{storeProductController.showAllProducts()}" />
 </f:metadata>
 <h:outputStylesheet library="css" name="tables.css" />
 
 <h:body>
-	<h:form>
-		<h:commandLink value="Add Store" action="add_store"></h:commandLink>
-	</h:form>
-
-	<h:dataTable value="#{manageStoresController.stores}" var="s"
+	<h:dataTable value="#{storeProductController.products}" var="p"
 		headerClass="table-header" rowClasses="table-odd-row,table-even-row">
 
 
 		<h:column>
 			<f:facet name="header">Store ID</f:facet>
- 	  #{s.sid}
+ 	  #{p.sid}
 	</h:column>
 
 		<h:column>
-			<f:facet name="header">Store Name</f:facet>
- 	  #{s.storeName}
-	</h:column>d
+			<f:facet name="header">Product ID</f:facet>
+ 	  #{p.pid}
+	</h:column>
 	
 	<h:column>
-			<f:facet name="header">Founded</f:facet>
- 	  #{s.founded}
+			<f:facet name="header">Name</f:facet>
+ 	  #{p.prodName}
+	</h:column>
+	
+	<h:column>
+			<f:facet name="header">Price</f:facet>
+ 	  #{p.price}
 	</h:column>
 
 		<h:column>
 			<f:facet name="header">Action</f:facet>
 			<h:form>
-				<h:commandLink value="Show Products " action="show_products"
-					actionListener="#{storeProductController.loadProducts(s.storeName)}" />
 				<h:commandLink value="Delete"
-					actionListener="#{manageStoresController.deleteStore(s.sid)}" />
+					actionListener="#{storeProductController.deleteProduct(p.pid)}" />
 			</h:form>
 		</h:column>
 	</h:dataTable>
