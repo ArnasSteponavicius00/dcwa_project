@@ -11,7 +11,7 @@ import javax.faces.context.FacesContext;
 
 import com.mysql.jdbc.CommunicationsException;
 
-@ManagedBean
+@ManagedBean(name="manageStoresController")
 @SessionScoped
 public class ManageStoresController {
 

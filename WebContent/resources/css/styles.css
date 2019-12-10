@@ -10,9 +10,22 @@
 	font-weight: bold;
 	width: 120px; 
 	padding: 5px 10px; 
-	margin-bottom: 15px;
+	margin-bottom: 30px;
+	background-color: #b2b2b2;
 }
 
 .labeld {
 	font-weight: bold;
+}
+
+.formLayout{
+	border: 2px solid #666; 
+	border-radius: 5px; 
+	padding: 4px; 
+	font-size: 12px;
+	font-weight: bold;
+	width: 120px; 
+	padding: 5px 10px; 
+	margin-bottom: 30px;
+	background-color: #b2b2b2;
 }

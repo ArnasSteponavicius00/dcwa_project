@@ -12,8 +12,14 @@
 		listener="#{storeProductController.showAllProducts()}" />
 </f:metadata>
 <h:outputStylesheet library="css" name="tables.css" />
+<h:outputStylesheet library="css" name="styles.css" />
 
 <h:body>
+	<h:form>
+		<h:commandLink value="Add Product" action="add_product"
+			class="addbutton"></h:commandLink>
+	</h:form>
+	<br />
 	<h:dataTable value="#{storeProductController.products}" var="p"
 		headerClass="table-header" rowClasses="table-odd-row,table-even-row">
 
@@ -27,13 +33,13 @@
 			<f:facet name="header">Product ID</f:facet>
  	  #{p.pid}
 	</h:column>
-	
-	<h:column>
-			<f:facet name="header">Name</f:facet>
+
+		<h:column>
+			<f:facet name="header">Product Name</f:facet>
  	  #{p.prodName}
 	</h:column>
-	
-	<h:column>
+
+		<h:column>
 			<f:facet name="header">Price</f:facet>
  	  #{p.price}
 	</h:column>
@@ -42,10 +48,16 @@
 			<f:facet name="header">Action</f:facet>
 			<h:form>
 				<h:commandLink value="Delete"
-					actionListener="#{storeProductController.deleteProduct(p.pid)}" />
+					actionListener="#{storeProductController.deleteProduct(p.pid)}"/>
 			</h:form>
 		</h:column>
 	</h:dataTable>
-
+	<p>
+		<h:form>
+			<tr>
+				<td><h:commandLink value="Home" action="index" class="addbutton"/></td>
+			</tr>
+		</h:form>
+	</p>
 </h:body>
 </html>

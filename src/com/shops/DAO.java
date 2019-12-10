@@ -165,6 +165,22 @@ public class DAO {
 		return products;
 	}//showAllProducts() end
 	
+	public void addProduct(StoreProduct product) throws Exception {
+		System.out.println("In addStore() DAO");
+
+		Connection myConn = null;
+		PreparedStatement myStmt = null;
+
+		myConn = mysqlDS.getConnection();
+
+		String sql = "insert into product (sid, prodName, price) values (?, ?, ?)";
+		myStmt = myConn.prepareStatement(sql);
+		myStmt.setInt(1, product.getSid());
+		myStmt.setString(2, product.getProdName());
+		myStmt.setString(3, product.getPrice());
+		myStmt.execute();
+	}//addStore() end
+	
 	public void deleteProduct(int pid) throws SQLException {
 		System.out.println("In deleteProduct() DAO");
 		System.out.println(pid);
@@ -179,16 +195,4 @@ public class DAO {
 		myStmt.setInt(1, pid);
 		myStmt.execute();
 	}//deleteProduct() end
-	
-	/*
-	 * =============================================================================
-	 * Head Offices
-	 * =============================================================================
-	 */
-	
-	public ArrayList<HeadOffice> loadOffices(){
-		
-		
-		return null;
-	}
 }

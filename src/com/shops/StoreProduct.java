@@ -1,5 +1,8 @@
 package com.shops;
 
+import javax.faces.bean.ManagedBean;
+
+@ManagedBean
 public class StoreProduct {
 	private int pid;
 	private int sid;

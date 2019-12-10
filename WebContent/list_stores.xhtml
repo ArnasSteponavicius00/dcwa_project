@@ -12,12 +12,13 @@
 		listener="#{manageStoresController.loadStores()}" />
 </f:metadata>
 <h:outputStylesheet library="css" name="tables.css" />
+<h:outputStylesheet library="css" name="styles.css" />
 
 <h:body>
 	<h:form>
-		<h:commandLink value="Add Store" action="add_store"></h:commandLink>
+		<h:commandLink value="Add Store" action="add_store" class="addbutton"></h:commandLink>
 	</h:form>
-
+	<br />
 	<h:dataTable value="#{manageStoresController.stores}" var="s"
 		headerClass="table-header" rowClasses="table-odd-row,table-even-row">
 
@@ -47,6 +48,12 @@
 			</h:form>
 		</h:column>
 	</h:dataTable>
-
+	<p>
+		<h:form>
+			<tr>
+				<td><h:commandLink value="Home" action="index" class="addbutton"/></td>
+			</tr>
+		</h:form>
+	</p>
 </h:body>
 </html>

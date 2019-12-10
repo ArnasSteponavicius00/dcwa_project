@@ -6,7 +6,7 @@
 <h:head>
 	<title>Add Store</title>
 </h:head>
-
+<h:outputStylesheet library="css" name="styles.css" />
 <h:body>
 	<h:messages globalOnly="true" />
 	<h3>Add Store</h3>
@@ -14,13 +14,21 @@
 		<table>
 			<tr>
 				<td>Store Name: <h:inputText value="#{manageStores.storeName}"
-						required="true" requiredMessage="Name is Mandatory" />
+						required="true" requiredMessage="• Error: Name is Mandatory"
+						id="name" />
 				</td>
 			</tr>
 			<tr>
+				<td><h:message for="name" style="color: red"></h:message></td>
+			</tr>
+			<tr>
 				<td>Founded: <h:inputText value="#{manageStores.founded}"
-						required="true" requiredMessage="Founded is Mandatory" />
+						required="true" requiredMessage="• Error: Founded is Mandatory"
+						id="founded" />
 				</td>
+			</tr>
+			<tr>
+				<td><h:message for="founded" style="color: red"></h:message></td>
 			</tr>
 		</table>
 
@@ -29,8 +37,10 @@
 	</h:form>
 	<p>
 		<h:form>
-			<h:commandLink value="Home" action="index" />
-			<h:commandLink value="Stores" action="list_stores" />
+			<tr>
+				<td><h:commandLink value="Home" action="index" class="addbutton"/></td>
+				<td><h:commandLink value="Stores" action="list_stores" class="addbutton"/></td>
+			</tr>
 		</h:form>
 	</p>
 </h:body>
