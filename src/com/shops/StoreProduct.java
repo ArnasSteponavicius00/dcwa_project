@@ -4,6 +4,7 @@ import javax.faces.bean.ManagedBean;
 
 @ManagedBean
 public class StoreProduct {
+	//variables
 	private int pid;
 	private int sid;
 	private int stid;

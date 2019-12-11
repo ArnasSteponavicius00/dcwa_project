@@ -8,7 +8,9 @@ public class HeadOffice{
 	private int _id;
 	private String location;
 	
-	//Getters and Setters
+	// ==================================================================================
+	// Getters and Setters
+	// ==================================================================================
 	public int getId() {
 		return _id;
 	}
@@ -22,6 +24,9 @@ public class HeadOffice{
 		this.location = location;
 	}
 	
+	// ==================================================================================
+	// Override toString method
+	// ==================================================================================
 	@Override
 	public String toString() {
 		return "\nSID: " + this._id + "\nLocation: " + this.location + "\n";

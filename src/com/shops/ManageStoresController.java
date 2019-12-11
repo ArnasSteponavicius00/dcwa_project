@@ -11,15 +11,16 @@ import javax.faces.context.FacesContext;
 
 import com.mysql.jdbc.CommunicationsException;
 
-@ManagedBean(name="manageStoresController")
+@ManagedBean(name = "manageStoresController")
 @SessionScoped
 public class ManageStoresController {
-
 	// variables
 	private DAO dao;
 	private ArrayList<ManageStores> stores;
 
+	// ==================================================================================
 	// Constructor
+	// ==================================================================================
 	public ManageStoresController() {
 		super();
 		try {
@@ -29,7 +30,7 @@ public class ManageStoresController {
 		}
 	}
 
-	// display stores by calling loadStores method from DAO.java
+	// Load Stores
 	public void loadStores() {
 		System.out.println("In loadStores() Controller");
 
@@ -38,13 +39,11 @@ public class ManageStoresController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
+	}// end loadStores()
 
-	// add a store by calling addStore method from DAO.java
+	// Add Stores
 	public String addStore(ManageStores store) {
 		System.out.println("In addStores() Controller");
-		System.out.println(store.getStoreName() + " " + store.getFounded());
-
 		try {
 			dao.addStore(store);
 			return "index";
@@ -61,9 +60,9 @@ public class ManageStoresController {
 			e.printStackTrace();
 		}
 		return null;
-	}
+	}// end addStore()
 
-	// delete a store by calling deleteStore method from DAO.java
+	// Delete Stores
 	public void deleteStore(int sid) {
 		System.out.println("In deleteStore() Controller");
 
@@ -72,7 +71,7 @@ public class ManageStoresController {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}
+	}// end deleteStore()
 
 	public ArrayList<ManageStores> getStores() {
 		return stores;

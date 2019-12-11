@@ -11,7 +11,7 @@ import javax.faces.context.FacesContext;
 
 import com.mysql.jdbc.CommunicationsException;
 
-@ManagedBean(name="storeProductController")
+@ManagedBean(name = "storeProductController")
 @SessionScoped
 public class StoreProductController {
 
@@ -20,10 +20,11 @@ public class StoreProductController {
 	private ArrayList<StoreProduct> products;
 	private String name;
 
+	// ==================================================================================
 	// Constructor
+	// ==================================================================================
 	public StoreProductController() {
 		super();
-
 		try {
 			dao = new DAO();
 		} catch (Exception e) {
@@ -31,6 +32,7 @@ public class StoreProductController {
 		}
 	}
 
+	// Load Products
 	public void loadProducts(String store) {
 		System.out.println("In loadProducts() Controller");
 		// System.out.println(store + "loadProducts() Controller");
@@ -41,20 +43,23 @@ public class StoreProductController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-	
+	}// end loadProducts()
+
+	// Used to display loadProducts on show_products.xhtml
+	public void showStoreProducts() {
+		loadProducts(name);
+	}// end showStoreProducts()
+
+	// Show all products in list_products.xhtml
 	public void showAllProducts() {
 		try {
 			products = dao.showAllProducts();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}
+	}// end showAllProducts()
 
-	public void showStoreProducts() {
-		loadProducts(name);
-	}
-	
+	// Add Products
 	public String addProduct(StoreProduct product) {
 		System.out.println("In addStores() Controller");
 
@@ -74,17 +79,17 @@ public class StoreProductController {
 			e.printStackTrace();
 		}
 		return null;
-	}
-	
+	}// end addProduct()
+
+	// Delete Product
 	public void deleteProduct(int pid) {
 		System.out.println("In deleteStore() Controller");
-
 		try {
 			dao.deleteProduct(pid);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}
+	}// end deleteProduct()
 
 	public ArrayList<StoreProduct> getProducts() {
 		return products;
