@@ -30,6 +30,7 @@ public class MongoDAO {
 	}
 
 	public ArrayList<HeadOffice> loadOffice() {
+		System.out.println("In loadOffice() DAO");
 		ArrayList<HeadOffice> officeList = new ArrayList<HeadOffice>();
 		Gson gson = new Gson();
 		FindIterable<Document> offices = collection.find().sort(new BasicDBObject("_id", 1));
@@ -43,6 +44,7 @@ public class MongoDAO {
 	}
 	
 	public HeadOffice addOffice(HeadOffice office) throws Exception {
+		System.out.println("In addOffice() DAO");
 		Document doc = new Document()
 		.append("_id", office.getId())
 		.append("location", office.getLocation());
@@ -54,8 +56,10 @@ public class MongoDAO {
 	}
 	
 	public int deleteOffice(int id) {
+		System.out.println("In deleteOffice() DAO");
 		collection.deleteOne(new Document("_id", id));
 		System.out.println("Document deleted");
+		
 		return id;
 	}
 }

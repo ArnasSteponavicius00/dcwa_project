@@ -23,6 +23,7 @@ public class HeadOfficeController {
 	}
 	
 	public void loadOffice() {
+		System.out.println("In loadOffice() Controller");
 		try {
 			office = mdao.loadOffice();
 		}catch(Exception e) {
@@ -31,6 +32,7 @@ public class HeadOfficeController {
 	}
 	
 	public void addOffice(HeadOffice office) {
+		System.out.println("In addOffice() Controller");
 		try {
 			office = mdao.addOffice(office);
 		} catch (Exception e) {
@@ -39,6 +41,7 @@ public class HeadOfficeController {
 	}
 	
 	public void deleteOffice(int id) {
+		System.out.println("In deleteOffice() Controller");
 		try {
 			mdao.deleteOffice(id);
 		} catch (Exception e) {
