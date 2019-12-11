@@ -37,6 +37,14 @@ public class HeadOfficeController {
 			e.printStackTrace();
 		}
 	}
+	
+	public void deleteOffice(int id) {
+		try {
+			mdao.deleteOffice(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	public ArrayList<HeadOffice> getOffice() {
 		return office;

@@ -1,7 +1,5 @@
 package com.shops;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.util.ArrayList;
 
 import org.bson.Document;
@@ -53,5 +51,11 @@ public class MongoDAO {
 		System.out.println("Document inserted");
 		
 		return office;
+	}
+	
+	public int deleteOffice(int id) {
+		collection.deleteOne(new Document("_id", id));
+		System.out.println("Document deleted");
+		return id;
 	}
 }

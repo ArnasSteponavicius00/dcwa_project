@@ -3,7 +3,7 @@ package com.shops;
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean
-public class HeadOffice {
+public class HeadOffice{
 	//variables
 	private int _id;
 	private String location;
